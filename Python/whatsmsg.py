@@ -1,4 +1,4 @@
 #pip install pywhatkit
 
 import pywhatkit
-pywhatkit.sendwhatmsg_instantly("+916362134058","i baby how are you")
+pywhatkit.sendwhatmsg_instantly("+91mobile no","message you want to send")

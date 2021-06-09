@@ -1,3 +1,5 @@
+#pip install instaloader
+
 import instaloader
 img = instaloader.Instaloader()
 dp = input("enter insta username:")

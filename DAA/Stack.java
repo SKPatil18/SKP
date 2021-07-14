@@ -21,17 +21,20 @@ public class Stack {
 		if(top==-1) {
 			System.out.println("Stack is Empty!");
 		}
-		System.out.println("Popped Element is "+arr[top--]);
+		System.out.println("Popped Element is "+arr[top]);
+		top--;
 	}
 	
 	public void display() {
 		if(top==-1) {
 			System.out.println("No Elements to Display");
 		}
-		System.out.println("Stack Elements are:");
-		for(int i=top; i>=-1; i--) {
-			System.out.println(arr[i]+" ");
+		else{
+		   System.out.println("Stack Elements are:");
+		   for(int i=top; i>=-1; i--) {
+			  System.out.println(" "+arr[i]);
 		}
+	    }
 	}
 
 	public static void main(String[] args) {
@@ -47,7 +50,7 @@ public class Stack {
 			System.out.println("1.push");
 			System.out.println("2.pop");
 			System.out.println("3.display");
-			System.out.print("Choose 1 Operation:");
+			Stem.out.print("Choose 1 Operation:");
 			int choice = scanner.nextInt();
 			
 			switch(choice){

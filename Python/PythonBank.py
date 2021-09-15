@@ -1,4 +1,4 @@
-acc_no = "9900184486"
+acc_no = "12345678"
 ifsc_code = "python123"
 Acc_balance = 0.00000
 

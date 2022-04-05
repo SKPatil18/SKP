@@ -1,1 +1,98 @@
 
+<html>
+    <head>
+        <title>mypage</title>
+    </head>
+
+    <body>
+
+        <style>
+            body{
+                margin: 0;
+                padding: 0;
+            }
+            .calc{
+                
+                position: absolute;
+                top: 30%;
+                left: 40%;
+                text-align: center;
+                background-color: rgb(70, 87, 117);
+                padding: 40px 30px;
+                border-radius: 20px;
+                
+                
+            }
+            #abc{
+                color:rgb(255, 196, 0);
+                text-align: center;
+            
+            }
+            
+            label{
+                padding-right: 70px;
+            }
+            .re{
+                padding-right: 125px;
+                padding-bottom: 10px;
+            }
+
+        </style>
+
+        <div class="calc">
+            
+            <h1 id="abc">simple calculator</h1>
+
+            <label>Enter a number</label><br>
+            <input type="text" id="getnum1"><br><br>
+
+            <label>Enter a number</label><br>
+            <input type="text" id="getnum2"><br><br>
+
+            <button onclick="add()">Add</button>
+            <button onclick="sub()">Sub</button>
+            <button onclick="mul()">Mul</button>
+            <button onclick="div()">Div</button>
+            <br><br>
+            <label class="re">Result</label><br>
+            <input type="text" id="res">
+            
+        </div>
+
+        <script>
+           function add(){
+                var x = parseInt(document.getElementById("getnum1").value);
+                var y = parseInt(document.getElementById("getnum2").value);
+                sum=x+y;
+                document.getElementById("res").value=sum;
+            }
+
+            function sub(){
+                var x = parseInt(document.getElementById("getnum1").value);
+                var y = parseInt(document.getElementById("getnum2").value);
+                sum=x-y;
+                document.getElementById("res").value=sum;
+            }
+
+
+            function mul(){
+                var x = parseInt(document.getElementById("getnum1").value);
+                var y = parseInt(document.getElementById("getnum2").value);
+                sum=x*y;
+                document.getElementById("res").value=sum;
+            }
+
+
+            function div(){
+                var x = parseInt(document.getElementById("getnum1").value);
+                var y = parseInt(document.getElementById("getnum2").value);
+                sum=x/y;
+                document.getElementById("res").value=sum;
+            }
+
+
+        </script>
+      
+
+    </body>
+</html>

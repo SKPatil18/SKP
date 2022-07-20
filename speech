@@ -1,0 +1,43 @@
+package com.example.text_to_speech;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.speech.tts.TextToSpeech;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import java.util.Locale;
+
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, TextToSpeech.OnInitListener {
+    EditText et;
+    Button btn;
+    TextToSpeech textToSpeech;
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        et=(EditText) findViewById(R.id.e);
+        btn=(Button) findViewById(R.id.button);
+        btn.setOnClickListener(this);
+        textToSpeech = new TextToSpeech((getBaseContext()),this);
+        textToSpeech.setLanguage(Locale.ENGLISH);
+    }
+
+    @Override
+    public void onClick(View view) {
+        String text = et.getText().toString();
+        textToSpeech.speak(text,TextToSpeech.QUEUE_FLUSH,null);
+    }
+
+    @Override
+    public void onInit(int i) {
+        if(i!=TextToSpeech.ERROR){
+            Toast.makeText(getBaseContext(), "success", Toast.LENGTH_SHORT).show();
+        }
+    }
+}

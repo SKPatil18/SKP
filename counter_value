@@ -1,0 +1,60 @@
+package com.example.countervalue;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.os.Handler;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+    Button startbtn,stopbtn;
+    TextView textView;
+    public int counter=0;
+    Handler customhandler = new Handler();
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        startbtn=(Button) findViewById(R.id.start);
+        startbtn.setOnClickListener(this);
+
+        stopbtn=(Button) findViewById(R.id.stop);
+        stopbtn.setOnClickListener(this);
+
+        textView = (TextView) findViewById(R.id.counter);
+    }
+
+    @Override
+    public void onClick(View view) {
+        if(view.equals(startbtn))
+            counterstart();
+        else if(view.equals(stopbtn))
+            counterstop();
+
+    }
+
+    private void counterstart() {
+        counter=0;
+        customhandler.postDelayed(updateTimerThread,0);
+
+    }
+
+    private void counterstop() {
+        customhandler.removeCallbacks(updateTimerThread);
+    }
+
+    private final Runnable updateTimerThread = new Runnable() {
+        @Override
+        public void run() {
+            textView.setText(""+counter);
+            customhandler.postDelayed(this,1000);
+            counter++;
+        }
+    };
+
+
+}
